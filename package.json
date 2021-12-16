@@ -1,0 +1,20 @@
+{
+  "name": "project-2",
+  "version": "1.0.0",
+  "description": "Project number 2 UofU ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alanhernandezvillanueva/project-2.git"
+  },
+  "author": "Alan Hernandez, Nick Rizzo, Jacob Smith",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alanhernandezvillanueva/project-2/issues"
+  },
+  "homepage": "https://github.com/alanhernandezvillanueva/project-2#readme"
+}
