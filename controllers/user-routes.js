@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User } = require('../models');
 
 // GET array of all user and except password
-router.get('/', (req, res) => {
+router.get('/api/users', (req, res) => {
     User.findAll({
         attributes: { exclude: ['password'] }
     })
@@ -20,15 +20,26 @@ router.get('/:id', (req, res) => {
         where: {
             id: req.params.id
         },
-        include:[
-            // models to be defined
-        ]
+        // include:[
+        //     // models to be defined
+        // ]
     })
+    .then(dbUserData => {
+        if (!dbUserData) {
+          res.status(404).json({ message: 'No user found with this id' });
+          return;
+        }
+        res.json(dbUserData);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
 
 });
 
 // POST Create New Users 
-router.post('/', (req, res) => {
+router.post('/api/users', (req, res) => {
     //create new user and return a json object 
     User.create({
         username: req.body.username,
@@ -45,7 +56,7 @@ router.post('/', (req, res) => {
 // create the sign up and log in routes here
 
 // PUT Update Users Info
-router.put('/:id', (req, res) => {
+router.put('/api/users/:id', (req, res) => {
 User.update(req.body, {
     individualHooks: true,
     where: {
@@ -66,7 +77,7 @@ User.update(req.body, {
 });
 
 // DELETE Users
-router.delete('/:id', (req, res) => {
+router.delete('/api/users/:id', (req, res) => {
     User.destroy({
       where: {
         id: req.params.id
