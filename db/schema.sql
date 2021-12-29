@@ -1,3 +1,3 @@
-DROP DATA IF EXISTS hack_share;
+DROP DATABASE IF EXISTS hack_share;
 
 CREATE DATABASE hack_share;
