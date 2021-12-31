@@ -2,6 +2,7 @@
 const User = require('./User');
 const Post = require("./Post");
 const Raiting = require('./Raiting');
+const Comment = require('./Comment')
 
 
 
