@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Post } = require('../../models');
+const { User, Post, Comment } = require('../../models');
 // const sequelize = require('../../config/connection');
 
 // find all of users posts 
@@ -12,10 +12,21 @@ router.get('/', (req, res) => {
             'post_content',
             'created_at',
         ],
-        //create comments model ann insert it here 
-        // include: [
-
-        // ]
+        include: [
+          // include the Comment model here:
+          {
+            model: Comment,
+            attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+            include: {
+              model: User,
+              attributes: ['username']
+            }
+          },
+          {
+            model: User,
+            attributes: ['username']
+          }
+        ]
     })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {
@@ -34,11 +45,19 @@ router.get('/:id', (req, res) => {
             'created_at'
         ],
         include: [
-            //include comets to post as well, define first
-            {
-                model: User,
-                attributes: ['username']
+          // include the Comment model here:
+          {
+            model: Comment,
+            attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+            include: {
+              model: User,
+              attributes: ['username']
             }
+          },
+          {
+            model: User,
+            attributes: ['username']
+          }
         ]
     })
     .then(dbPostData => {
@@ -54,11 +73,12 @@ router.get('/:id', (req, res) => {
       });
   });
   router.post('/', (req, res) => {
-    // expects {title: 'Taskmaster goes public!', postContent = description of the post', user_id: 1}
+    
     Post.create({
       title: req.body.title,
-      postContent: req.body.postContent,
-      user_id: req.body.user_id
+      post_content: req.body.post_content,
+      post_category: req.body.post_category,
+      // user_id: req.body.user_id
     })
       .then(dbPostData => res.json(dbPostData))
       .catch(err => {
