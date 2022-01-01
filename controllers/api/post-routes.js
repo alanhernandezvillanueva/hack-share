@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
+const { post } = require('./user-routes');
 // const sequelize = require('../../config/connection');
 
 // find all of users posts 
@@ -33,6 +34,7 @@ router.get('/', (req, res) => {
         res.status(500).json(err);
     });
 });
+
 router.get('/:id', (req, res) => {
     Post.findOne({
         where: {
