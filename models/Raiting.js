@@ -1,1 +1,0 @@
-// Model for rating posts will be here 
