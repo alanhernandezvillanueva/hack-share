@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
 const { post } = require('./user-routes');
-// const sequelize = require('../../config/connection');
+const sequelize = require('../../config/connection');
 
 // find all of users posts 
 router.get('/', (req, res) => {
@@ -12,6 +12,7 @@ router.get('/', (req, res) => {
             'title',
             'post_content',
             'created_at',
+            'post_category'
         ],
         include: [
           // include the Comment model here:
@@ -34,6 +35,41 @@ router.get('/', (req, res) => {
         res.status(500).json(err);
     });
 });
+router.get('/:post_category', (req, res) => {
+  Post.findAll({
+    where :{
+      post_category: req.params.post_category
+    },
+      order: [['created_at', 'DESC']],
+      attributes: [
+          'id',
+          'title',
+          'post_content',
+          'created_at',
+          'post_category'
+      ],
+      include: [
+        // include the Comment model here:
+        {
+          model: Comment,
+          attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+          include: {
+            model: User,
+            attributes: ['username']
+          }
+        },
+        {
+          model: User,
+          attributes: ['username']
+        }
+      ]
+  })
+  .then(dbPostData => res.json(dbPostData))
+  .catch(err => {
+      res.status(500).json(err);
+  });
+});
+
 
 router.get('/:id', (req, res) => {
     Post.findOne({
@@ -44,7 +80,8 @@ router.get('/:id', (req, res) => {
             'id',
             'title',
             'post_content',
-            'created_at'
+            'created_at',
+            'post_category'
         ],
         include: [
           // include the Comment model here:
@@ -74,6 +111,9 @@ router.get('/:id', (req, res) => {
         res.status(500).json(err);
       });
   });
+
+  
+
   router.post('/', (req, res) => {
     
     Post.create({

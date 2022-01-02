@@ -25,7 +25,7 @@ class Post extends Model {
           type: DataTypes.STRING,
           allowNull: false,   
           validate: {
-            isIn:[["Pets", "Automotive", "Food", "Random"]]
+            isIn:[["pets", "automotive", "food", "random"]]
          }
         },
         user_id: {
