@@ -1,0 +1,51 @@
+<template id="signup-template">
+
+        <div>
+          <h5>Enter Details</h5>
+        </div>
+        <div class="signup-body">
+          <label>Username: </label>
+          <input type="text" id="username" />
+          <br />
+          <label>Email: </label>
+          <input type="text" id="email" />
+          <br />
+          <label>Password: </label>
+          <input
+            type="password"
+            class="log-btn btn-outline-primary"
+            id="password-input"
+            placeholder="min 4 characters "
+          />
+          <br />
+          <button
+            type="button"
+            class="btn btn-outline-primary"
+            id="submit-signup"
+          >Signup</button>
+        </div>
+        <div class="bg-light">
+          <a
+            href="/login"
+            class="btn btn-outline-primary float-right"
+          >Login Instead</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</template>
+
+<div id="signup-content" class="card-grid"></div>
+
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"
+></script>
+
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"
+></script>
+<script src="/js/signup.js"></script>
