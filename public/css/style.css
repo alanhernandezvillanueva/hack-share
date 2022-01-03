@@ -1,0 +1,17 @@
+body {
+  background-color: lightgray;
+}
+
+/* login modal styling */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 30px;
+  margin: 15px;
+}
+
+.btn-outline-secondary {
+  background-color: #83a00a;
+  color: #c53a83;
+  color: #83a00a;
+}

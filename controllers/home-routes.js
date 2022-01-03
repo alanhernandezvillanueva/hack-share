@@ -41,7 +41,7 @@ router.get("/", (req, res) => {
     .then((dbPostData) => {
       const posts = dbPostData.map((post) => post.get({ plain: true }));
 
-      res.render("homepage", { posts });
+      res.render("dashboard", { posts });
     })
     .catch((err) => {
       console.log(err);
@@ -53,4 +53,11 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
+router.get("/signup", (req, res) => {
+  res.render("signup");
+});
+
+router.get("/search", (req, res) => {
+  res.render("search");
+});
 module.exports = router;
