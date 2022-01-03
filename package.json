@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -24,5 +25,20 @@
     "express-handlebars": "^6.0.2",
     "mysql2": "^2.3.3",
     "sequelize": "^6.12.0-beta.3"
+  },
+  "devDependencies": {
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,json,md,html}": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
   }
 }
