@@ -1,17 +1,54 @@
 body {
-  background-color: lightgray;
+  background-color: #d1e8e2;
 }
 
-/* login modal styling */
-.card-grid {
+/* login styling */
+/* .card-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-column-gap: 30px;
   margin: 15px;
+} */
+
+nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #d1e8e2;
 }
 
-.btn-outline-secondary {
-  background-color: #83a00a;
-  color: #c53a83;
-  color: #83a00a;
+nav ul li {
+  float: right;
+  list-style-type: none;
+}
+
+nav ul li a {
+  display: block;
+  color: #2c3531;
+  font-weight: bold;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+#login-template {
+  color: #2c3531;
+}
+
+.modal-body {
+  height: 500px;
+  width: 500px;
+  text-align: center;
+  margin: auto;
+  display: grid;
+  grid-column-gap: 30px;
+  align-items: center;
+}
+
+.btn {
+  background-color: #2c3531;
+  color: #d1e8e2;
+}
+
+.log-btn {
 }

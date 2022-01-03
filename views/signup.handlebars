@@ -1,41 +1,9 @@
-<h2>Signup Here </h2>
+<template id="signup-template">
 
-<template id="card-template">
-
-  <div class="card">
-
-    <a
-      href="#"
-      class="btn btn-outline-warning float-right"
-      data-toggle="modal"
-      data-target="#myModal{{@index}}"
-    >Signup Instead</a>
-
-  </div>
-
-  <!-- Modal -->
-  <div
-    class="modal fade"
-    id="myModal{{@index}}"
-    tabindex="-1"
-    role="dialog"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog modal-dialog-scrollable" role="document">
-      <div class="modal-content">
-        <div class="modal-header bg-light">
-          <h5 class="modal-title" id="exampleModalLabel">Enter Details</h5>
-          <button
-            type="button"
-            class="close"
-            data-dismiss="modal"
-            aria-label="Close"
-          >
-            <span aria-hidden="true">&times;</span>
-          </button>
+        <div>
+          <h5>Enter Details</h5>
         </div>
-        <div class="modal-body">
+        <div class="signup-body">
           <label>Username: </label>
           <input type="text" id="username" />
           <br />
@@ -45,22 +13,21 @@
           <label>Password: </label>
           <input
             type="password"
+            class="log-btn btn-outline-primary"
             id="password-input"
             placeholder="min 4 characters "
           />
           <br />
           <button
             type="button"
-            class="btn btn-outline-success"
+            class="btn btn-outline-primary"
             id="submit-signup"
           >Signup</button>
         </div>
-        <div class="modal-footer bg-light">
+        <div class="bg-light">
           <a
             href="/login"
-            class="btn btn-outline-secondary float-right"
-            data-toggle="modal"
-            data-target="#myModal{{@index}}"
+            class="btn btn-outline-primary float-right"
           >Login Instead</a>
         </div>
       </div>
@@ -69,7 +36,7 @@
 
 </template>
 
-<div id="content" class="card-grid"></div>
+<div id="signup-content" class="card-grid"></div>
 
 <script
   src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"

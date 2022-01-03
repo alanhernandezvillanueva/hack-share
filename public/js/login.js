@@ -7,28 +7,28 @@ var data = {
   ],
 };
 
-var source = document.getElementById("card-template").innerHTML;
+var source = document.getElementById("login-template").innerHTML;
 var template = Handlebars.compile(source);
 var html = template(data);
 
-document.getElementById("content").innerHTML = html;
+document.getElementById("login-content").innerHTML = html;
 console.log(html);
 
 //jquery method
 $("#content .card-footer .btn").on("click", function (event) {
   console.log("jquery");
 
-  var index = $(".card").index(event.currentTarget);
+  var index = $(".login-btn").index(event.currentTarget);
   console.log("index = " + index);
   console.log(event.target.dataset.target);
 });
 
-$("#content .modal-body .btn").on("click", function (event) {
+$("#submit-login").on("click", function (event) {
   console.log("Clicked the login button inside the modal ");
 
-  var passwordData = $("#content .modal-body #password-input")[0].value;
+  var passwordData = $("#password-input")[0].value;
   console.log(passwordData);
-  var emailData = $("#content .modal-body #email")[0].value;
+  var emailData = $("#email")[0].value;
   console.log(emailData);
 
   //fetch request for POSTing data to DB
