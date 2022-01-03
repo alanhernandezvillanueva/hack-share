@@ -11,11 +11,11 @@ const PORT = process.env.PORT || 3004;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-//make public folder accessible
+// make public folder accessible
 app.use(express.static(path.join(__dirname, "public")));
-//Handlebar
+//Handlebars
 app.engine("handlebars", hbs.engine);
-app.set("view engine", "handlebars");
+ app.set("view engine", "handlebars");
 
 // turn on routes
 app.use(routes);
