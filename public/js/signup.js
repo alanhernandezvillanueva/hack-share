@@ -25,11 +25,11 @@ $("#content .card-footer .btn").on("click", function (event) {
 
 $("#submit-signup").on("click", function (event) {
   console.log("Clicked the signup button inside the modal ");
-  var userNameData = $("#content .modal-body #username")[0].value;
+  var userNameData = $("#signup-content .modal-body #username")[0].value;
   console.log(userNameData);
-  var passwordData = $("#content .modal-body #password-input")[0].value;
+  var passwordData = $("#signup-content .modal-body #password-input")[0].value;
   console.log(passwordData);
-  var emailData = $("#content .modal-body #email")[0].value;
+  var emailData = $("#signup-content .modal-body #email")[0].value;
   console.log(emailData);
 
   //fetch request for POSTing data to DB
@@ -44,7 +44,7 @@ $("#submit-signup").on("click", function (event) {
   });
   console.log(response);
   if (response) {
-    document.location.replace("/");
+    document.location.replace("/login");
   } else {
     alert("Failed to sign up");
   }
