@@ -1,6 +1,42 @@
-<div>
-    <h2>Login Here</h2>
-    <p>Username: <input /></p>
-</div>
+<template id="login-template">
 
+        <div class="modal-body">
+          <h5>Please Login</h5>
+          <label>Email: </label>
+          <input type="text" id="email" />
+          <br />
+          <label>Password: </label>
+          <input type="password" id="password-input" />
+          <br />
+          <button
+            type="button"
+            class="log-btn btn"
+            id="submit-login"
+          >Login</button>
+          <div>
+          <a
+            href="/signup"
+            class="btn"
+          >Not a User? Signup Here!</a>
+        </div>
+        </div>
+ 
+      </div>
+    </div>
+  </div>
+
+</template>
+
+<div id="login-content" class="card-grid"></div>
+
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"
+></script>
+
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"
+></script>
 <script src="/js/login.js"></script>

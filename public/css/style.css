@@ -1,0 +1,66 @@
+body {
+  background-color: #d1e8e2;
+}
+
+/* login styling */
+/* .card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 30px;
+  margin: 15px;
+} */
+
+nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #d1e8e2;
+}
+
+nav ul li {
+  float: right;
+  list-style-type: none;
+}
+
+nav ul li a {
+  display: block;
+  color: #2c3531;
+  font-weight: bold;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+#login-template {
+  color: #2c3531;
+}
+
+.modal-body {
+  height: 300px;
+  width: 300px;
+  text-align: center;
+  margin: auto;
+  display: grid;
+  grid-column-gap: 30px;
+  align-items: center;
+}
+
+.btn {
+  background-color: #2c3531;
+  color: #d1e8e2;
+  margin-top: 20px;
+}
+
+/* .log-btn {
+} */
+
+.head {
+  color: #2c3531;
+  text-align: center;
+  margin-top: 35px;
+}
+
+#post-comment {
+  float: right;
+  margin-right: 50px;
+}
