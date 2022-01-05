@@ -3,7 +3,7 @@ const { User, Post, Comment } = require('../../models');
 const { post } = require('./user-routes');
 const sequelize = require('../../config/connection');
 
-// find all of users posts 
+// route will retreive all posts stored in api 
 router.get('/', (req, res) => {
     Post.findAll({
         order: [['created_at', 'DESC']],
@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
             'post_category'
         ],
         include: [
-          // include the Comment model here:
+          // all the models that the get all post will attach to it 
           {
             model: Comment,
             attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
@@ -35,6 +35,8 @@ router.get('/', (req, res) => {
         res.status(500).json(err);
     });
 });
+
+// sort posts by category 
 router.get('/:post_category', (req, res) => {
   Post.findAll({
     where :{
@@ -49,7 +51,7 @@ router.get('/:post_category', (req, res) => {
           'post_category'
       ],
       include: [
-        // include the Comment model here:
+        // include comments
         {
           model: Comment,
           attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
@@ -70,7 +72,7 @@ router.get('/:post_category', (req, res) => {
   });
 });
 
-
+// retreive an specific posts from api 
 router.get('/:id', (req, res) => {
     Post.findOne({
         where: {
@@ -84,7 +86,7 @@ router.get('/:id', (req, res) => {
             'post_category'
         ],
         include: [
-          // include the Comment model here:
+          // include comments and user 
           {
             model: Comment,
             attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
@@ -112,7 +114,7 @@ router.get('/:id', (req, res) => {
       });
   });
 
-  
+  //create post 
 
   router.post('/', (req, res) => {
     
@@ -128,8 +130,8 @@ router.get('/:id', (req, res) => {
         res.status(500).json(err);
       });
   });
-  //need to create a rating router
- //update posts information 
+ 
+ //update posts content
   router.put('/:id', (req, res) =>{
       Post.update(
           {
@@ -173,4 +175,6 @@ router.get('/:id', (req, res) => {
         res.status(500).json(err);
       });
   });
+
+  //export routes 
   module.exports = router;

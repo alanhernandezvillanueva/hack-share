@@ -1,16 +1,17 @@
 const router = require('express').Router();
 const { Comment } = require('../../models');
 
+
+// route retreives all of the comments 
 router.get('/', (req, res) => {
     Comment.findAll()
     .then(dbCommentdata => res.json(dbCommentdata))
     .catch(err => {
-        console.log(err);
         res.status(500).json(err);
     });
 
 });
-
+// route creates comments 
 router.post('/', (req, res) => {
     Comment.create({
         comment_text: req.body.comment_text,
@@ -19,7 +20,7 @@ router.post('/', (req, res) => {
     });
 
 });
-
+//here is the route to delet comments 
 router.delete('/:id', (req, res) => {
     Comment.destroy({
         where: {
@@ -38,5 +39,5 @@ router.delete('/:id', (req, res) => {
          res.status(500).json(err);
      })
 });
-
+// export routes 
 module.exports = router;

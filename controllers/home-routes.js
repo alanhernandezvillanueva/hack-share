@@ -2,27 +2,11 @@ const router = require("express").Router();
 const sequelize = require("../config/connection");
 const { Post, User, Comment } = require("../models");
 
-// router.get("/login", (req, res) => {
-//   //render your handlebar file inside the {{{body}}}
-//   res.render("login");
-// });
-// router.get("/signup", (req, res) => {
-//   //render your handlebar file inside the {{{body}}}
-//   res.render("signup");
-// });
-// router.get("/", (req, res) => {
-//   //render your handlebar file inside the {{{body}}}
-//   res.render("homepage");
-// });
-// router.get("/search", (req, res) => {
-//   //render your handlebar file inside the {{{body}}}
-//   res.render("search");
-
-// get all posts for homepage
+//routed to access the home page with all posts and categories 
 router.get("/", (req, res) => {
-  console.log("==");
+  
   Post.findAll({
-    attributes: ["id", "title", "post_content", "created_at"],
+    attributes: ["id", "title", "post_category", "post_content", "created_at"],
     include: [
       {
         model: Comment,
@@ -48,16 +32,16 @@ router.get("/", (req, res) => {
       res.status(500).json(err);
     });
 });
+// unable to complete due to no having front end 
+// router.get("/login", (req, res) => {
+//   res.render("login");
+// });
 
-router.get("/login", (req, res) => {
-  res.render("login");
-});
+// router.get("/signup", (req, res) => {
+//   res.render("signup");
+// });
 
-router.get("/signup", (req, res) => {
-  res.render("signup");
-});
-
-router.get("/search", (req, res) => {
-  res.render("search");
-});
+// router.get("/search", (req, res) => {
+//   res.render("search");
+// });
 module.exports = router;

@@ -12,9 +12,7 @@ User.hasMany(Post, {
 Post.belongsTo(User, {
     foreignKey: 'user_id',
   });
-  // Post.hasOne(Category, {
 
-  // });
   Comment.belongsTo(User, {
     foreignKey: 'user_id'
   });
