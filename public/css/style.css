@@ -36,8 +36,8 @@ nav ul li a {
 }
 
 .modal-body {
-  height: 500px;
-  width: 500px;
+  height: 300px;
+  width: 300px;
   text-align: center;
   margin: auto;
   display: grid;
@@ -48,7 +48,19 @@ nav ul li a {
 .btn {
   background-color: #2c3531;
   color: #d1e8e2;
+  margin-top: 20px;
 }
 
-.log-btn {
+/* .log-btn {
+} */
+
+.head {
+  color: #2c3531;
+  text-align: center;
+  margin-top: 35px;
+}
+
+#post-comment {
+  float: right;
+  margin-right: 50px;
 }
