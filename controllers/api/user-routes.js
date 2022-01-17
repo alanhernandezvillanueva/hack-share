@@ -1,8 +1,8 @@
 const router = require("express").Router();
-const { User } = require("../../models");
+const { User, Post, Vote, Comment } = require("../../models");
 
-// GET array of all user and except password
-router.get("/api/users", (req, res) => {
+// get all users
+router.get("/", (req, res) => {
   User.findAll({
     attributes: { exclude: ["password"] },
   })
@@ -13,16 +13,13 @@ router.get("/api/users", (req, res) => {
     });
 });
 
-// GET all infor from one user
 router.get("/:id", (req, res) => {
   User.findOne({
     attributes: { exclude: ["password"] },
     where: {
       id: req.params.id,
     },
-    // include:[
-    //     // models to be defined
-    // ]
+   
   })
     .then((dbUserData) => {
       if (!dbUserData) {
@@ -37,9 +34,9 @@ router.get("/:id", (req, res) => {
     });
 });
 
-// POST Create New Users
-router.post("/api/users", (req, res) => {
-  //create new user and return a json object
+//create user route 
+router.post("/", (req, res) => {
+  // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
   User.create({
     username: req.body.username,
     email: req.body.email,
@@ -51,10 +48,9 @@ router.post("/api/users", (req, res) => {
       res.status(500).json(err);
     });
 });
-// create the sign up and log in routes here
 
-// PUT Update Users Info
-router.put("/api/users/:id", (req, res) => {
+//update users information  route
+router.put("/:id", (req, res) => {
   User.update(req.body, {
     individualHooks: true,
     where: {
@@ -73,9 +69,8 @@ router.put("/api/users/:id", (req, res) => {
       res.status(500).json(err);
     });
 });
-
-// DELETE Users
-router.delete("/api/users/:id", (req, res) => {
+// delete user route
+router.delete("/:id", (req, res) => {
   User.destroy({
     where: {
       id: req.params.id,
