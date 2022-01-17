@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 // make public folder accessible
 app.use(express.static(path.join(__dirname, "public")));
 //Handlebars
-app.engine("handlebars", hbs.engine);
+app.engine('handlebars', exphbs({ defaultLayout: 'main'}));
  app.set("view engine", "handlebars");
 
 // turn on routes
