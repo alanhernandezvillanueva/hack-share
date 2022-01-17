@@ -1,6 +1,6 @@
 ## Hack Share
 
-# Hack Sharte was developed to allow those with the desire of helping others and share their knowledge, whether is something small or large life hack, it is important for it to be out there improving peopled lives.
+# Hack Share was developed to allow those with the desire of helping others and share their knowledge, whether is something small or large life hack, it is important for it to be out there improving peopled lives.
 
 # Application created with HTML, CSS, JS, NodeJS, Handlebars and SQL
 
@@ -10,7 +10,7 @@
 
 # Application dependencies: bcrypt,dotenv,express, express-handlebars, mysql2, prettier, sequelize.
 
-
+![screenshot](https://github.com/alanhernandezvillanueva/hack-share/blob/main/public/DEFC9687-D798-485F-92F1-0B2935C0FEF2.jpeg?raw=true)
 
 
 # app created by Alan Hernandez 
