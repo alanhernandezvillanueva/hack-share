@@ -1,8 +1,7 @@
 const express = require("express");
 const routes = require("./controllers");
 const sequelize = require("./config/connection");
-const exphbs = require("express-handlebars");
-const hbs = exphbs.create({});
+const { engine } = require('express-handlebars');
 const path = require("path");
 
 const app = express();
@@ -14,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 // make public folder accessible
 app.use(express.static(path.join(__dirname, "public")));
 //Handlebars
-app.engine('handlebars', exphbs({ defaultLayout: 'main'}));
+app.engine('handlebars', engine({ extname: '.hbs', defaultLayout: "main"}));
  app.set("view engine", "handlebars");
 
 // turn on routes
